@@ -57,7 +57,7 @@ class _SolutionNestedSelectorExampleState extends State<SolutionNestedSelectorEx
                       return Column(
                         children: [
                           UserItem(
-                            itemLabel: 'firstName',
+                            itemLabel: 'first name',
                             onChangeFiled: (str) {
                               userBloc.add(UserEvent.setFirstName(firstName: str));
                             },
