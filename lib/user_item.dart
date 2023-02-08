@@ -18,9 +18,9 @@ class UserItem extends StatelessWidget {
     return Column(
       children: [
         Text(
-          itemLabel,
+          itemValue,
         ),
-        UserField(onChangeFiled: onChangeFiled, labelText: itemValue)
+        UserField(onChangeFiled: onChangeFiled, labelText: itemLabel)
       ],
     );
   }
