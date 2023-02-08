@@ -36,12 +36,13 @@ class _ProblemNestedSelectorExampleState extends State<ProblemNestedSelectorExam
                     selector: (state) {
                       return state.firstName;
                     },
-                    builder: (context, state) {
+                    builder: (context, firstName) {
                       logger.i('rebuild name');
                       return Column(
                         children: [
                           UserItem(
-                            itemLabel: 'name',
+                            itemValue: firstName,
+                            itemLabel: 'first name',
                             onChangeFiled: (str) {
                               userBloc.add(UserEvent.setFirstName(firstName: str));
                             },
@@ -53,11 +54,12 @@ class _ProblemNestedSelectorExampleState extends State<ProblemNestedSelectorExam
                             selector: (state) {
                               return state.secondName;
                             },
-                            builder: (context, state) {
+                            builder: (context, secondName) {
                               logger.i('rebuild second name');
                               return Column(
                                 children: [
                                   UserItem(
+                                    itemValue: secondName,
                                     itemLabel: 'second name',
                                     onChangeFiled: (str) {
                                       userBloc.add(UserEvent.setSecondName(secondName: str));
@@ -70,9 +72,10 @@ class _ProblemNestedSelectorExampleState extends State<ProblemNestedSelectorExam
                                     selector: (state) {
                                       return state.surname;
                                     },
-                                    builder: (context, state) {
+                                    builder: (context, surname) {
                                       logger.i('rebuild surname');
                                       return UserItem(
+                                        itemValue: surname,
                                         itemLabel: 'surname',
                                         onChangeFiled: (str) {
                                           userBloc.add(UserEvent.setSecondName(secondName: str));

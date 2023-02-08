@@ -34,10 +34,11 @@ class _SelectorExampleState extends State<SelectorExample> {
                     selector: (state) {
                       return state.firstName;
                     },
-                    builder: (context, state) {
+                    builder: (context, firstName) {
                       logger.i('rebuild name');
                       return UserItem(
-                        itemLabel: 'name',
+                        itemValue: firstName,
+                        itemLabel: 'first name',
                         onChangeFiled: (str) {
                           userBloc.add(UserEvent.setFirstName(firstName: str));
                         },
@@ -51,9 +52,10 @@ class _SelectorExampleState extends State<SelectorExample> {
                     selector: (state) {
                       return state.secondName;
                     },
-                    builder: (context, state) {
+                    builder: (context, secondName) {
                       logger.i('rebuild second name');
                       return UserItem(
+                        itemValue: secondName,
                         itemLabel: 'second name',
                         onChangeFiled: (str) {
                           userBloc.add(UserEvent.setSecondName(secondName: str));
@@ -68,12 +70,13 @@ class _SelectorExampleState extends State<SelectorExample> {
                     selector: (state) {
                       return state.surname;
                     },
-                    builder: (context, state) {
+                    builder: (context, surname) {
                       logger.i('rebuild surname');
                       return UserItem(
                         itemLabel: 'surname',
+                        itemValue: surname,
                         onChangeFiled: (str) {
-                          userBloc.add(UserEvent.setSecondName(secondName: str));
+                          userBloc.add(UserEvent.setSurname(surname: str));
                         },
                       );
                     },

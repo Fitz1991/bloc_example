@@ -35,6 +35,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                     builder: (context, state) {
                       logger.i('rebuild name');
                       return UserItem(
+                        itemValue: state.firstName,
                         itemLabel: 'name',
                         onChangeFiled: (str) {
                           userBloc.add(UserEvent.setFirstName(firstName: str));
@@ -50,6 +51,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                     builder: (context, state) {
                       logger.i('rebuild second name');
                       return UserItem(
+                        itemValue: state.secondName,
                         itemLabel: 'second name',
                         onChangeFiled: (str) {
                           userBloc.add(UserEvent.setSecondName(secondName: str));
@@ -65,6 +67,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                     builder: (context, state) {
                       logger.i('rebuild surname');
                       return UserItem(
+                        itemValue: state.surname,
                         itemLabel: 'surname',
                         onChangeFiled: (str) {
                           userBloc.add(UserEvent.setSecondName(secondName: str));

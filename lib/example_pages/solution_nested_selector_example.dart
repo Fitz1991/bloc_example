@@ -57,10 +57,14 @@ class _SolutionNestedSelectorExampleState extends State<SolutionNestedSelectorEx
                       return Column(
                         children: [
                           UserItem(
-                            itemLabel: 'name',
+                            itemLabel: 'firstName',
                             onChangeFiled: (str) {
                               userBloc.add(UserEvent.setFirstName(firstName: str));
                             },
+                            itemValue: state.whenOrNull(
+                                  firstName: (firstName) => firstName,
+                                ) ??
+                                '',
                           ),
                           const SizedBox(
                             height: 50,
@@ -93,6 +97,10 @@ class _SolutionNestedSelectorExampleState extends State<SolutionNestedSelectorEx
                                     onChangeFiled: (str) {
                                       userBloc.add(UserEvent.setSecondName(secondName: str));
                                     },
+                                    itemValue: state.whenOrNull(
+                                          secondName: (secondName) => secondName,
+                                        ) ??
+                                        '',
                                   ),
                                   const SizedBox(
                                     height: 50,
@@ -119,9 +127,13 @@ class _SolutionNestedSelectorExampleState extends State<SolutionNestedSelectorEx
                                     builder: (context, state) {
                                       logger.i('rebuild surname');
                                       return UserItem(
+                                        itemValue: state.whenOrNull(
+                                              surname: (surname) => surname,
+                                            ) ??
+                                            '',
                                         itemLabel: 'surname',
                                         onChangeFiled: (str) {
-                                          userBloc.add(UserEvent.setSecondName(secondName: str));
+                                          userBloc.add(UserEvent.setSurname(surname: str));
                                         },
                                       );
                                     },

@@ -5,10 +5,12 @@ class UserItem extends StatelessWidget {
   const UserItem({
     Key? key,
     required this.itemLabel,
+    required this.itemValue,
     required this.onChangeFiled,
   }) : super(key: key);
 
   final String itemLabel;
+  final String itemValue;
   final OnChangeFiled onChangeFiled;
 
   @override
@@ -18,7 +20,7 @@ class UserItem extends StatelessWidget {
         Text(
           itemLabel,
         ),
-        UserField(onChangeFiled: onChangeFiled, labelText: itemLabel)
+        UserField(onChangeFiled: onChangeFiled, labelText: itemValue)
       ],
     );
   }
