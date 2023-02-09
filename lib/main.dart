@@ -1,7 +1,7 @@
 import 'package:bloc_example/example_pages/bloc_bulder_example.dart';
 import 'package:bloc_example/example_pages/bloc_consumer.dart';
 import 'package:bloc_example/example_pages/bloc_listener.dart';
-import 'package:bloc_example/example_pages/selector_example.dart';
+import 'package:bloc_example/example_pages/bloc_selector_example.dart';
 import 'package:bloc_example/widgets/detail_user.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {'/details': (context) => const DetailUser()},
-      home: const BlocConsumerExample(),
+      home:
+          // const BlocBuilderExample()
+          // const BlocSelectorExample(),
+          // const BlocListenerExample(),
+          const BlocConsumerExample(),
     );
   }
 }

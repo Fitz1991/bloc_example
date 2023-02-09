@@ -1,22 +1,22 @@
 import 'package:bloc_example/bloc/single_state/user_bloc.dart';
 import 'package:bloc_example/logger.dart';
-import 'package:bloc_example/user_item.dart';
+import 'package:bloc_example/widgets/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///Если несколько состояний или несколько свойств в одном состоянии
 ///и надо перестроить только тоот виджет который относится
 ///к этому свойству или состоянию
-class SelectorExample extends StatefulWidget {
-  const SelectorExample({
+class BlocSelectorExample extends StatefulWidget {
+  const BlocSelectorExample({
     super.key,
   });
 
   @override
-  State<SelectorExample> createState() => _SelectorExampleState();
+  State<BlocSelectorExample> createState() => _BlocSelectorExampleState();
 }
 
-class _SelectorExampleState extends State<SelectorExample> {
+class _BlocSelectorExampleState extends State<BlocSelectorExample> {
   UserBloc userBloc = UserBloc();
 
   @override

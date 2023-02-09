@@ -1,4 +1,4 @@
-import 'package:bloc_example/user_field.dart';
+import 'package:bloc_example/widgets/user_field.dart';
 import 'package:flutter/material.dart';
 
 class UserItem extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:bloc_example/bloc/single_state/user_bloc.dart';
 import 'package:bloc_example/logger.dart';
-import 'package:bloc_example/user_item.dart';
+import 'package:bloc_example/widgets/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,7 +31,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   BlocBuilder<UserBloc, UserState>(
-                    // buildWhen: (previous, current) => previous.firstName != current.firstName,
+                    buildWhen: (previous, current) => previous.firstName != current.firstName,
                     builder: (context, state) {
                       logger.i('rebuild name: ${state.firstName}');
                       return UserItem(
@@ -47,7 +47,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                     height: 50,
                   ),
                   BlocBuilder<UserBloc, UserState>(
-                    // buildWhen: (previous, current) => previous.secondName != current.secondName,
+                    buildWhen: (previous, current) => previous.secondName != current.secondName,
                     builder: (context, state) {
                       logger.i('rebuild second name: ${state.secondName}');
                       return UserItem(
@@ -63,7 +63,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                     height: 50,
                   ),
                   BlocBuilder<UserBloc, UserState>(
-                    // buildWhen: (previous, current) => previous.surname != current.surname,
+                    buildWhen: (previous, current) => previous.surname != current.surname,
                     builder: (context, state) {
                       logger.i('rebuild surname ${state.surname}');
                       return UserItem(
