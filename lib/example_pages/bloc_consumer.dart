@@ -30,7 +30,6 @@ class _BlocConsumerExampleState extends State<BlocConsumerExample> {
                 children: <Widget>[
                   ///Если надо и перестроить виджет и сделать что-то, что не будет перестраивать виджет
                   /// например аналалитическое событие или показать диалоговое окно
-                  /// listener вызывается после построения виджета
                   BlocConsumer<UserBloc, UserState>(
                     buildWhen: (previous, current) => previous.firstName != current.firstName,
                     listenWhen: (previous, current) => previous.firstName != current.firstName,
