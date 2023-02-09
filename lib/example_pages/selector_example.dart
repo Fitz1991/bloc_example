@@ -4,10 +4,13 @@ import 'package:bloc_example/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+///Если несколько состояний или несколько свойств в одном состоянии
+///и надо перестроить только тоот виджет который относится
+///к этому свойству или состоянию
 class SelectorExample extends StatefulWidget {
-  const SelectorExample({super.key, required this.title});
-
-  final String title;
+  const SelectorExample({
+    super.key,
+  });
 
   @override
   State<SelectorExample> createState() => _SelectorExampleState();
@@ -20,7 +23,7 @@ class _SelectorExampleState extends State<SelectorExample> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: const Text('Selector example'),
         ),
         body: BlocProvider<UserBloc>(
           create: (context) => userBloc,
@@ -32,10 +35,11 @@ class _SelectorExampleState extends State<SelectorExample> {
                 children: <Widget>[
                   BlocSelector<UserBloc, UserState, String>(
                     selector: (state) {
+                      //Указываем при изменении какого свойства перебилживать виджет
                       return state.firstName;
                     },
                     builder: (context, firstName) {
-                      logger.i('rebuild name');
+                      logger.i('rebuild name: $firstName');
                       return UserItem(
                         itemValue: firstName,
                         itemLabel: 'first name',
@@ -53,7 +57,7 @@ class _SelectorExampleState extends State<SelectorExample> {
                       return state.secondName;
                     },
                     builder: (context, secondName) {
-                      logger.i('rebuild second name');
+                      logger.i('rebuild second name: $secondName');
                       return UserItem(
                         itemValue: secondName,
                         itemLabel: 'second name',
@@ -71,7 +75,7 @@ class _SelectorExampleState extends State<SelectorExample> {
                       return state.surname;
                     },
                     builder: (context, surname) {
-                      logger.i('rebuild surname');
+                      logger.i('rebuild surname: $surname');
                       return UserItem(
                         itemLabel: 'surname',
                         itemValue: surname,

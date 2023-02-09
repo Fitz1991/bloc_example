@@ -1,7 +1,8 @@
 import 'package:bloc_example/example_pages/bloc_bulder_example.dart';
-import 'package:bloc_example/example_pages/problem_nested_selector_example.dart';
+import 'package:bloc_example/example_pages/bloc_consumer.dart';
+import 'package:bloc_example/example_pages/bloc_listener.dart';
 import 'package:bloc_example/example_pages/selector_example.dart';
-import 'package:bloc_example/example_pages/solution_nested_selector_example.dart';
+import 'package:bloc_example/widgets/detail_user.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SolutionNestedSelectorExample(title: 'Flutter Demo Home Page'),
+      routes: {'/details': (context) => const DetailUser()},
+      home: const BlocConsumerExample(),
     );
   }
 }

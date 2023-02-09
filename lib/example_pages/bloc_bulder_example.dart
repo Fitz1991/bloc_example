@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlocBuilderExample extends StatefulWidget {
-  const BlocBuilderExample({super.key, required this.title});
-
-  final String title;
+  const BlocBuilderExample({
+    super.key,
+  });
 
   @override
   State<BlocBuilderExample> createState() => _BlocBuilderExampleState();
@@ -20,7 +20,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: const Text('BlocBuilder example'),
         ),
         body: BlocProvider<UserBloc>(
           create: (context) => userBloc,
@@ -33,7 +33,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                   BlocBuilder<UserBloc, UserState>(
                     // buildWhen: (previous, current) => previous.firstName != current.firstName,
                     builder: (context, state) {
-                      logger.i('rebuild name');
+                      logger.i('rebuild name: ${state.firstName}');
                       return UserItem(
                         itemValue: state.firstName,
                         itemLabel: 'name',
@@ -49,7 +49,7 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                   BlocBuilder<UserBloc, UserState>(
                     // buildWhen: (previous, current) => previous.secondName != current.secondName,
                     builder: (context, state) {
-                      logger.i('rebuild second name');
+                      logger.i('rebuild second name: ${state.secondName}');
                       return UserItem(
                         itemValue: state.secondName,
                         itemLabel: 'second name',
@@ -65,12 +65,12 @@ class _BlocBuilderExampleState extends State<BlocBuilderExample> {
                   BlocBuilder<UserBloc, UserState>(
                     // buildWhen: (previous, current) => previous.surname != current.surname,
                     builder: (context, state) {
-                      logger.i('rebuild surname');
+                      logger.i('rebuild surname ${state.surname}');
                       return UserItem(
                         itemValue: state.surname,
                         itemLabel: 'surname',
                         onChangeFiled: (str) {
-                          userBloc.add(UserEvent.setSecondName(secondName: str));
+                          userBloc.add(UserEvent.setSurname(surname: str));
                         },
                       );
                     },

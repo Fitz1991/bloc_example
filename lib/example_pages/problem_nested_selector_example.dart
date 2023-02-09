@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 //Проблема перебилживания вложенных состояний
 
 class ProblemNestedSelectorExample extends StatefulWidget {
-  const ProblemNestedSelectorExample({super.key, required this.title});
-
-  final String title;
+  const ProblemNestedSelectorExample({
+    super.key,
+  });
 
   @override
   State<ProblemNestedSelectorExample> createState() => _ProblemNestedSelectorExampleState();
@@ -22,7 +22,7 @@ class _ProblemNestedSelectorExampleState extends State<ProblemNestedSelectorExam
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: const Text('ProblemNestedSelectorExample'),
         ),
         body: BlocProvider<UserBloc>(
           create: (context) => userBloc,
